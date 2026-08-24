@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bapbkm5jxyvrt" path="res://assets/models/main_menu_background.glb" id="1_kmweg"]
 [ext_resource type="Texture2D" uid="uid://cwj5kwbq5860g" path="res://assets/models/main_menu_background_ground.png" id="2_oa5fl"]
+[ext_resource type="Script" uid="uid://cwi1ycs3h2q4e" path="res://scenes/models/WindMillSails.cs" id="3_qf02i"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qf02i"]
 albedo_texture = ExtResource("2_oa5fl")
@@ -10,3 +11,6 @@ albedo_texture = ExtResource("2_oa5fl")
 
 [node name="Floor" parent="." index="0" unique_id=105070062]
 material_override = SubResource("StandardMaterial3D_qf02i")
+
+[node name="wind_mill_sails" parent="wind_mill_bearing/wind_mill_body" parent_id_path=PackedInt32Array(1135978075) index="0" unique_id=398592820]
+script = ExtResource("3_qf02i")
