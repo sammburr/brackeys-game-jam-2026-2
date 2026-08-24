@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://buk3d6hkv55y4"]
+
+[ext_resource type="Script" uid="uid://bo2bxoue3wjtq" path="res://scripts/Main.cs" id="1_o5qli"]
+
+[node name="Main" type="Node" unique_id=424369741]
+script = ExtResource("1_o5qli")
+Scenes = Dictionary[String, String]({
+"main-menu": "res://scenes/main_menu/main_menu.tscn",
+"test-level": "res://scenes/levels/test.tscn"
+})
+StartupScene = "main-menu"
+AudioStreams = Dictionary[String, String]({
+"menu-ambi": "res://assets/audio/main_menu_ambi.ogg"
+})

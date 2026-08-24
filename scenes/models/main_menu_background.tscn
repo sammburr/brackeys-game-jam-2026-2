@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://d33ydtptk73qi"]
+
+[ext_resource type="PackedScene" uid="uid://bapbkm5jxyvrt" path="res://assets/models/main_menu_background.glb" id="1_kmweg"]
+[ext_resource type="Texture2D" uid="uid://cwj5kwbq5860g" path="res://assets/models/main_menu_background_ground.png" id="2_oa5fl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qf02i"]
+albedo_texture = ExtResource("2_oa5fl")
+
+[node name="main_menu_background" unique_id=412169612 instance=ExtResource("1_kmweg")]
+
+[node name="Floor" parent="." index="0" unique_id=105070062]
+material_override = SubResource("StandardMaterial3D_qf02i")

@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://cm7x5mhagr5t4"]
+
+[node name="Test" type="Node" unique_id=1898108732]
+
+[node name="UI" type="Control" parent="." unique_id=1919602287]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="UI" unique_id=1217476986]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "The Game!"

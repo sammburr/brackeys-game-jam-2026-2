@@ -1,0 +1,123 @@
+[gd_scene format=3 uid="uid://dmanwp4dbwrsl"]
+
+[ext_resource type="Script" uid="uid://d2a0r3dv4vlha" path="res://scripts/main_menu/MainMenu.cs" id="1_0ebjn"]
+[ext_resource type="FontFile" uid="uid://bb45fastcyr" path="res://assets/fonts/DotGothic16-Regular.ttf" id="1_fsom3"]
+[ext_resource type="PackedScene" uid="uid://d33ydtptk73qi" path="res://scenes/models/main_menu_background.tscn" id="3_ob46e"]
+[ext_resource type="Texture2D" uid="uid://qjrvafhisiy8" path="res://assets/images/belfast_sunset_puresky_1k.exr" id="4_uqeha"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ob46e"]
+albedo_color = Color(0.25503692, 0.37706292, 0.2534555, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_omjkn"]
+size = Vector2(5000.06, 5000.54)
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_uqeha"]
+panorama = ExtResource("4_uqeha")
+energy_multiplier = 0.1
+
+[sub_resource type="Sky" id="Sky_ob46e"]
+sky_material = SubResource("PanoramaSkyMaterial_uqeha")
+
+[sub_resource type="Environment" id="Environment_omjkn"]
+background_mode = 2
+sky = SubResource("Sky_ob46e")
+
+[node name="MainMenu" type="Node" unique_id=286089849 node_paths=PackedStringArray("StartGameButton", "QuitGameButton")]
+script = ExtResource("1_0ebjn")
+StartGameButton = NodePath("UI/MarginContainer/VBoxContainer/MarginContainer2/StartGame")
+QuitGameButton = NodePath("UI/MarginContainer/VBoxContainer/MarginContainer/Quit")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=-1276492005]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+stretch_shrink = 3
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=-1276492006]
+handle_input_locally = false
+size = Vector2i(384, 216)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport" unique_id=1892150255]
+transform = Transform3D(-4.3650225e-08, 0.052883435, 0.9986007, 2.3116085e-09, 0.9986007, -0.052883435, -1, 0, -4.3711392e-08, 4.9966273, 0.5308044, 0.5375744)
+far = 50.0
+
+[node name="Enviroment" type="Node3D" parent="SubViewportContainer/SubViewport" unique_id=849542011]
+
+[node name="Plane" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Enviroment" unique_id=1756672395]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1488998, 0)
+material_override = SubResource("StandardMaterial3D_ob46e")
+mesh = SubResource("PlaneMesh_omjkn")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport/Enviroment" unique_id=1466503041]
+transform = Transform3D(0.5225726, 0.3409359, -0.7814605, -0.35151187, 0.9211968, 0.16683963, 0.7767607, 0.18750688, 0.60123533, -2.2410874, 1.8439574, -3.0188122)
+light_color = Color(0.7715771, 0.49881774, 0.2833024, 1)
+shadow_enabled = true
+
+[node name="main_menu_background" parent="SubViewportContainer/SubViewport/Enviroment" unique_id=412169612 instance=ExtResource("3_ob46e")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewportContainer/SubViewport/Enviroment" unique_id=803662509]
+environment = SubResource("Environment_omjkn")
+
+[node name="UI" type="Control" parent="." unique_id=37805029]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="UI" unique_id=1691788135]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="UI" unique_id=1641252548]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -125.0
+offset_right = 125.0
+offset_bottom = 109.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer" unique_id=772644954]
+layout_mode = 2
+
+[node name="Title" type="RichTextLabel" parent="UI/MarginContainer/VBoxContainer" unique_id=78846497]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_fsom3")
+bbcode_enabled = true
+text = "[font_size=50][wave]Rumor Mill[/wave]"
+fit_content = true
+autowrap_mode = 0
+
+[node name="MarginContainer2" type="MarginContainer" parent="UI/MarginContainer/VBoxContainer" unique_id=1398450167]
+layout_mode = 2
+theme_override_constants/margin_top = 15
+
+[node name="StartGame" type="Button" parent="UI/MarginContainer/VBoxContainer/MarginContainer2" unique_id=1386857152]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_fsom3")
+text = "B E G I N"
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/MarginContainer/VBoxContainer" unique_id=2111034801]
+layout_mode = 2
+theme_override_constants/margin_top = 15
+
+[node name="Quit" type="Button" parent="UI/MarginContainer/VBoxContainer/MarginContainer" unique_id=795321613]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_fsom3")
+text = "Q U I T"
