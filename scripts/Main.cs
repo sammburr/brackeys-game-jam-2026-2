@@ -20,7 +20,7 @@ public partial class Main : Node
     public string StartupScene { get; private set; } = "";
 
     [Export]
-    public Dictionary<string, string> AudioStreams {get; private set;} = [];
+    public Dictionary<string, string> AudioStreams {get; private set;} = new();
 
     private Dictionary<string, string> _scenes = new();
 

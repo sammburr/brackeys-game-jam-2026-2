@@ -11,8 +11,8 @@ public partial class SceneManager : Node
 
     #endregion
 
-    public Dictionary<string, PackedScene> RegisteredScenes {private set; get;} = [];
-    public HashSet<Node> SceneInstances {private set; get;} = [];
+    public Dictionary<string, PackedScene> RegisteredScenes {private set; get;} = new();
+    public HashSet<Node> SceneInstances {private set; get;} = new();
 
     #region Public API
 

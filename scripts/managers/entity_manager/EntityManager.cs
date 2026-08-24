@@ -20,7 +20,7 @@ public partial class EntityManager : Node
 
     private ulong _nextEntityID = 0;
 
-    private Dictionary<ulong, IEntity> _entities = [];
+    private Dictionary<ulong, IEntity> _entities = new();
 
     #region Public API
 
@@ -67,7 +67,7 @@ public partial class EntityManager : Node
     // Empty if non found of type
     public static List<IEntity> GetAllOfType(int type)
     {
-        List<IEntity> entities = [];
+        List<IEntity> entities = new();
         foreach(IEntity currentEntity in Instance._entities.Values)
         {
             if(currentEntity.EntityType == type)

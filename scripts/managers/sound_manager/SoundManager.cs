@@ -18,9 +18,9 @@ public partial class SoundManager : Node
 
     #endregion
 
-    private List<AudioStreamPlayer> _audioStreamPlayerBuffer = [];
-    private Dictionary<string, AudioStream> _registeredStreams = [];
-    private Dictionary<AudioStreamPlayer, bool> _loopingPlayers = [];
+    private List<AudioStreamPlayer> _audioStreamPlayerBuffer = new();
+    private Dictionary<string, AudioStream> _registeredStreams = new();
+    private Dictionary<AudioStreamPlayer, bool> _loopingPlayers = new();
 
     public override void _Ready()
     {

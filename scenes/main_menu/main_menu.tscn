@@ -100,7 +100,7 @@ layout_mode = 2
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("1_fsom3")
 bbcode_enabled = true
-text = "[font_size=50][wave]Rumor Mill[/wave]"
+text = "[font_size=50][wave]Rumour Mill[/wave]"
 fit_content = true
 autowrap_mode = 0
 
