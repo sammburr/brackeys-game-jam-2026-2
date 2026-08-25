@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DialogueOption" format=3 uid="uid://41wyfmpc0ovk"]
+
+[ext_resource type="Script" uid="uid://dgp4iko852e0n" path="res://scripts/managers/dialogue_manager/DialogueOption.cs" id="1_0mnsl"]
+
+[resource]
+script = ExtResource("1_0mnsl")
+exitTag = "diag2"
+bannedTag = "diag2"
+ChoiceText = "Brady? Nice name mate"
+ResponseText = "Get out of my house."
+metadata/_custom_type_script = "uid://dgp4iko852e0n"

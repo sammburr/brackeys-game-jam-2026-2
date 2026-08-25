@@ -3,9 +3,10 @@
 [ext_resource type="Resource" uid="uid://p823vv1vx8fm" path="res://scripts/managers/dialogue_manager/NPCDialogues/NPC1/diag1.tres" id="1_l6gys"]
 [ext_resource type="Resource" uid="uid://g5gpmbpvky2b" path="res://scripts/managers/dialogue_manager/NPCDialogues/NPC1/diag2.tres" id="2_kdtcy"]
 [ext_resource type="Script" uid="uid://cf1hjnpdlkhik" path="res://scripts/managers/dialogue_manager/NPCDialogue.cs" id="3_i1gls"]
+[ext_resource type="Resource" uid="uid://b67hu0leshajo" path="res://scripts/managers/dialogue_manager/NPCDialogues/NPC1/diag3.tres" id="3_kdtcy"]
 
 [resource]
 script = ExtResource("3_i1gls")
 InitialMessage = "Hi, I'm Grady!"
-DialogueOptions = Array[Object]([ExtResource("1_l6gys"), ExtResource("2_kdtcy")])
+DialogueOptions = Array[Object]([ExtResource("1_l6gys"), ExtResource("2_kdtcy"), ExtResource("3_kdtcy")])
 metadata/_custom_type_script = "uid://cf1hjnpdlkhik"

@@ -4,6 +4,7 @@
 
 [resource]
 script = ExtResource("1_gjj3x")
+exitTag = "grady_accused_brady"
 ChoiceText = "Howdy Grady! Did you break the statue?"
-ResponseText = "Nuh uh!"
+ResponseText = "No, I think it was Brady!"
 metadata/_custom_type_script = "uid://dgp4iko852e0n"

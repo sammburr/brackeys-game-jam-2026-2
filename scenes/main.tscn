@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bo2bxoue3wjtq" path="res://scripts/Main.cs" id="1_o5qli"]
 [ext_resource type="Resource" uid="uid://dre8gb44sksx1" path="res://scripts/managers/dialogue_manager/NPCDialogues/NPC1/NPC_Grady.tres" id="2_0wfyh"]
+[ext_resource type="Resource" uid="uid://bukaqkicb7isw" path="res://scripts/managers/dialogue_manager/NPCDialogues/NPC2/NPC_Brady.tres" id="3_sugp2"]
 
 [node name="Main" type="Node" unique_id=424369741]
 script = ExtResource("1_o5qli")
@@ -14,4 +15,4 @@ StartupScene = "main-menu"
 AudioStreams = Dictionary[String, String]({
 "menu-ambi": "res://assets/audio/main_menu_ambi.ogg"
 })
-Dialogues = Array[Object]([ExtResource("2_0wfyh")])
+Dialogues = Array[Object]([ExtResource("2_0wfyh"), ExtResource("3_sugp2")])

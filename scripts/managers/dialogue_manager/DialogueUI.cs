@@ -3,47 +3,72 @@ using System;
 
 public partial class DialogueUI : Control{
 
-	[Export] private Label _mainLabel;
+	[Export] public Label _mainLabel;
 
-	[Export] private Control _promptContainer;
-	[Export] private Button _okButton;
-	
-	
-	private NPCDialogue _activeDialogue;
-	private bool _justPrompted;
+	[Export] public Control _promptContainer;
+	[Export] public Button _actionButton;
+
+	[Export] public Control MainUI;
 	
 	
 	public override void _Ready(){
-		LoadDialogueData(DialogueManager.Instance.data);
-		_okButton.ButtonUp += ResetToPrompts;
+		_actionButton.ButtonUp += ActionButtonPressed;
+		MainUI.Visible = false;
+
 	}
 
 	private void LoadDialogueData(NPCDialogue d){
-		_activeDialogue = d;
 		_mainLabel.Text = d.InitialMessage;
 
 		foreach (Node child in _promptContainer.GetChildren())
 			child.QueueFree();
 
-
-		for (int i = 0; i < d.DialogueOptions.Count; i++) {
-			var option = d.DialogueOptions[i];
+		var options = DialogueManager.Instance.GetValidOptions();
+			
+		
+		foreach (var option in options) {
 			var button = new Button();
 			button.Text = option.ChoiceText;
 			_promptContainer.AddChild(button);
-
-			int index = i; // annoying
-			button.ButtonUp += () => SelectPrompt(index);
+			button.ButtonUp += () => SelectedPrompt(option);
 		}
 	}
 
-	private void SelectPrompt(int p){
-		_mainLabel.Text = _activeDialogue.DialogueOptions[p].ResponseText;
+	private void SelectedPrompt(DialogueOption option){
+		_mainLabel.Text = option.ResponseText;
 		_promptContainer.Visible = false;
+		DialogueManager.Instance.InPrompt = true;
+		DialogueManager.Instance.AddTag(option.exitTag);
+		_actionButton.Text = "Continue";
 	}
 
-	private void ResetToPrompts(){
+	private void ActionButtonPressed(){
+		if (DialogueManager.Instance.InPrompt) {
+			ResetUIToPrompts();
+		}
+		else {
+			HideDialogueScreen();
+		}
+	}
+	
+	private void ResetUIToPrompts(){
 		_promptContainer.Visible = true;
-		_mainLabel.Text = _activeDialogue.InitialMessage;
+		DialogueManager.Instance.InPrompt = false;
+		LoadDialogueData(DialogueManager.Instance.ActiveDialogue);
+		_actionButton.Text = "Leave";
+	}
+
+	public void SetActiveDialogue(int d){
+		DialogueManager.Instance.SetActiveDialogue(d);
+		LoadDialogueData(DialogueManager.Instance.data[d]);
+		MainUI.Visible = true;
+		DialogueManager.Instance.Speaking = true;
+		ResetUIToPrompts();
+	}
+
+	public void HideDialogueScreen(){
+		MainUI.Visible = false;
+		DialogueManager.Instance.InPrompt = false;
+		DialogueManager.Instance.Speaking = false;
 	}
 }

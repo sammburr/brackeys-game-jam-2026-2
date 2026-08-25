@@ -38,7 +38,7 @@ public partial class InputManager : Node
         }
         else if(@event.IsPressed() && !@event.IsEcho())
         {
-            Logger.Warn($"Received {@event.GetType().Name} but InputStack is empty, ignoring");
+            // Logger.Warn($"Received {@event.GetType().Name} but InputStack is empty, ignoring");
         }
     }
 
