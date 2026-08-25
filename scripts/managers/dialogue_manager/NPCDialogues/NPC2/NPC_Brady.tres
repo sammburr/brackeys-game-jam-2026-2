@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="NPCDialogue" format=3 uid="uid://bukaqkicb7isw"]
+
+[ext_resource type="Resource" uid="uid://bblp8rlwd3o6i" path="res://scripts/managers/dialogue_manager/NPCDialogues/NPC2/diag1.tres" id="1_bq07a"]
+[ext_resource type="Resource" uid="uid://41wyfmpc0ovk" path="res://scripts/managers/dialogue_manager/NPCDialogues/NPC2/diag2.tres" id="2_swy1c"]
+[ext_resource type="Resource" uid="uid://bscpd1h068rf1" path="res://scripts/managers/dialogue_manager/NPCDialogues/NPC2/diag3.tres" id="3_6be2o"]
+[ext_resource type="Script" uid="uid://cf1hjnpdlkhik" path="res://scripts/managers/dialogue_manager/NPCDialogue.cs" id="4_sa2pq"]
+
+[resource]
+script = ExtResource("4_sa2pq")
+InitialMessage = "Hi, I'm Brady!"
+DialogueOptions = Array[Object]([ExtResource("1_bq07a"), ExtResource("2_swy1c"), ExtResource("3_6be2o")])
+metadata/_custom_type_script = "uid://cf1hjnpdlkhik"

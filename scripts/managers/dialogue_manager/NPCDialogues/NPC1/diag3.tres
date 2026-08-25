@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="DialogueOption" format=3 uid="uid://b67hu0leshajo"]
+
+[ext_resource type="Script" uid="uid://dgp4iko852e0n" path="res://scripts/managers/dialogue_manager/DialogueOption.cs" id="1_62iui"]
+
+[resource]
+script = ExtResource("1_62iui")
+requiredTag = "brady_accused_grady"
+ChoiceText = "Brady said it was you?"
+ResponseText = "Brady says a lot of things"
+metadata/_custom_type_script = "uid://dgp4iko852e0n"

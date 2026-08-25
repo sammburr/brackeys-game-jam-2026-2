@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DialogueOption" format=3 uid="uid://bblp8rlwd3o6i"]
+
+[ext_resource type="Script" uid="uid://dgp4iko852e0n" path="res://scripts/managers/dialogue_manager/DialogueOption.cs" id="1_mjnhp"]
+
+[resource]
+script = ExtResource("1_mjnhp")
+exitTag = "brady_accused_grady"
+bannedTag = "brady_accused_grady"
+ChoiceText = "Howdy Brady! Did you break the statue?"
+ResponseText = "No, I think it was Grady!"
+metadata/_custom_type_script = "uid://dgp4iko852e0n"
