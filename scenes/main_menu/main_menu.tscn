@@ -4,6 +4,7 @@
 [ext_resource type="FontFile" uid="uid://bb45fastcyr" path="res://assets/fonts/DotGothic16-Regular.ttf" id="1_fsom3"]
 [ext_resource type="PackedScene" uid="uid://d33ydtptk73qi" path="res://scenes/models/main_menu_background.tscn" id="3_ob46e"]
 [ext_resource type="Texture2D" uid="uid://qjrvafhisiy8" path="res://assets/images/belfast_sunset_puresky_1k.exr" id="4_uqeha"]
+[ext_resource type="PackedScene" uid="uid://bwi2f6ilawalp" path="res://scenes/npc/skeleton.tscn" id="5_wem23"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ob46e"]
 albedo_color = Color(0.25503692, 0.37706292, 0.2534555, 1)
@@ -121,3 +122,25 @@ theme_override_constants/margin_top = 15
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_fsom3")
 text = "Q U I T"
+
+[node name="npc_skeleton" parent="." unique_id=1773078943 instance=ExtResource("5_wem23")]
+transform = Transform3D(-0.8340635, 0, -0.55166876, 0, 1, 0, 0.55166876, 0, -0.8340635, 4.8585997, 0.38774914, 0.6468755)
+
+[node name="npc_skeleton2" parent="." unique_id=360224086 instance=ExtResource("5_wem23")]
+transform = Transform3D(-0.95651627, 0, -0.29167998, 0, 1, 0, 0.29167998, 0, -0.95651627, 4.8039064, 0.38774914, 0.60818994)
+DefaultAnimation = "LookingAround"
+CurrentMesh = "Owner"
+
+[node name="npc_skeleton3" parent="." unique_id=852765133 instance=ExtResource("5_wem23")]
+transform = Transform3D(-0.70497143, 0, -0.709236, 0, 1, 0, 0.709236, 0, -0.70497143, 4.802413, 0.38774914, 0.7302059)
+CurrentMesh = "Husband"
+
+[node name="npc_skeleton4" parent="." unique_id=1947535937 instance=ExtResource("5_wem23")]
+transform = Transform3D(-0.78048915, 0, 0.62516963, 0, 1, 0, -0.62516963, 0, -0.78048915, 4.80456, 0.38774914, 0.30203795)
+DefaultAnimation = "Walking"
+CurrentMesh = "TwinOne"
+
+[node name="npc_skeleton5" parent="." unique_id=872275029 instance=ExtResource("5_wem23")]
+transform = Transform3D(-0.9905611, 0, 0.13707334, 0, 1, 0, -0.13707334, 0, -0.9905611, 4.8092475, 0.38774914, 0.3889376)
+DefaultAnimation = "LookingAround"
+CurrentMesh = "TwinTwo"
