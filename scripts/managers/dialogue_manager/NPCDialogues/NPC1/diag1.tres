@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DialogueOption" format=3 uid="uid://p823vv1vx8fm"]
+
+[ext_resource type="Script" uid="uid://dgp4iko852e0n" path="res://scripts/managers/dialogue_manager/DialogueOption.cs" id="1_gjj3x"]
+
+[resource]
+script = ExtResource("1_gjj3x")
+ChoiceText = "Howdy Grady! Did you break the statue?"
+ResponseText = "Nuh uh!"
+metadata/_custom_type_script = "uid://dgp4iko852e0n"

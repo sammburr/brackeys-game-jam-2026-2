@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DialogueOption" format=3 uid="uid://g5gpmbpvky2b"]
+
+[ext_resource type="Script" uid="uid://dgp4iko852e0n" path="res://scripts/managers/dialogue_manager/DialogueOption.cs" id="1_d2pwt"]
+
+[resource]
+script = ExtResource("1_d2pwt")
+ChoiceText = "Grady? Shit name mate"
+ResponseText = "Get out of my house."
+metadata/_custom_type_script = "uid://dgp4iko852e0n"

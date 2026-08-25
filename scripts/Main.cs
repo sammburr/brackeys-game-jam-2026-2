@@ -1,6 +1,7 @@
 using System.Linq;
 using Godot;
 using Godot.Collections;
+using Array = System.Array;
 
 [Tool]
 public partial class Main : Node
@@ -24,6 +25,8 @@ public partial class Main : Node
 
     private Dictionary<string, string> _scenes = new();
 
+    [Export] private Array<NPCDialogue> Dialogues;
+
     // This is just boiler plate for making StartupScene a drop down of options populated
     // from the Scenes dictionary.
     public override void _ValidateProperty(Dictionary property)
@@ -42,5 +45,8 @@ public partial class Main : Node
         SoundManager.RegisterStreams(AudioStreams.ToDictionary());
 
         SceneManager.TryInstanciateScene(StartupScene, out _);
+
+        DialogueManager.Instance.LoadDialogueData(Dialogues);
+
     }
 }

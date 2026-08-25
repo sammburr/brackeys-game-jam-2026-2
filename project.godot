@@ -21,6 +21,7 @@ InputManager="*uid://bgy3hwe2o8ykk"
 LoggerGlobal="*uid://cycapu4a1upow"
 SceneManager="*uid://b81gqqtv2twc7"
 SoundManager="*uid://cfxv8lbs3coew"
+DialogueManager="*uid://cceb0g8aogr8k"
 
 [display]
 

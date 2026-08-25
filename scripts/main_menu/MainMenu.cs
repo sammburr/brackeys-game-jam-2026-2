@@ -47,7 +47,7 @@ public partial class MainMenu : Node
 
         SoundManager.StopAllSounds();
         SceneManager.Clear(); // this frees this script, but that is okay as the scene tree will still run the rest of this frame!
-        SceneManager.TryInstanciateScene("test-level", out _);
+        SceneManager.TryInstanciateScene("dialogue-ui", out _);
     }
 
     private void QuitGame()
