@@ -1,43 +1,45 @@
 using Godot;
-using System;
 
 public partial class PlayerManager : CharacterBody3D
 {
-    
     #region Singleton
 
     public static PlayerManager Instance {private set; get;}
     public override void _EnterTree() => Instance = this;
 
     #endregion
-    
+
     private class PlayerInput : ICustomParsedInput
     {
-        public bool PlayerMoveLeft;
-        public bool PlayerMoveRight;
-        public bool PlayerMoveForward;
-        public bool PlayerMoveBack;
+        public Vector2 MoveDirection;
         public bool PlayerInteract;
     }
     private class PlayerInputContext : ICustomInputContext
     {
+        private Vector2 _moveDirection;
+
         public ICustomParsedInput Restart()
         {
-            return new PlayerInput {
-                PlayerMoveLeft = false,
-                PlayerMoveRight = false,
-                PlayerMoveForward = false, 
-                PlayerMoveBack = false
-            };
+            _moveDirection = Vector2.Zero;
+            return new PlayerInput { MoveDirection = _moveDirection, PlayerInteract = false };
         }
 
         public ICustomParsedInput TransformInput(InputEvent @event)
         {
-            return new PlayerInput{PlayerMoveLeft = @event.IsActionPressed("player_move_left"),
-                PlayerMoveRight = @event.IsActionPressed("player_move_right"),
-                PlayerMoveForward = @event.IsActionPressed("player_move_forward"), 
-                PlayerMoveBack = @event.IsActionPressed("player_move_back"),
-                PlayerInteract = @event.IsActionPressed("player_interact")};
+            bool interact = @event.IsActionPressed("player_interact");
+
+            float x = (Input.IsActionPressed("player_move_right") ? 1f : 0f) - (Input.IsActionPressed("player_move_left") ? 1f : 0f);
+            float y = (Input.IsActionPressed("player_move_back") ? 1f : 0f) - (Input.IsActionPressed("player_move_forward") ? 1f : 0f);
+            var newMoveDirection = new Vector2(x, y).Normalized();
+
+            if (newMoveDirection == _moveDirection && !interact) return new EmptyParsedInput();
+
+            _moveDirection = newMoveDirection;
+
+            return new PlayerInput {
+                MoveDirection = _moveDirection,
+                PlayerInteract = interact
+            };
         }
     }
 
@@ -56,13 +58,7 @@ public partial class PlayerManager : CharacterBody3D
     
     private void OnInputParsed(ICustomParsedInput parsed){
         if (parsed is not PlayerInput input) return;
-        
-        float x = (input.PlayerMoveRight ? 1f : 0f) - (input.PlayerMoveLeft ? 1f : 0f);
-        float y = (input.PlayerMoveBack ? 1f : 0f) - (input.PlayerMoveForward ? 1f : 0f);
-
-        
-        InputVector = new Vector2(x, y).Normalized();
-        Logger.Info($"{x} {y}, {InputVector}");
+        InputVector = input.MoveDirection;
     }
     
 }
