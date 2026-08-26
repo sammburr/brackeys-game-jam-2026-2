@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://d1wpjskhebyx2" path="res://scenes/npc/npc_entity.tscn" id="1_fwnqx"]
 [ext_resource type="Texture2D" uid="uid://qjrvafhisiy8" path="res://assets/images/belfast_sunset_puresky_1k.exr" id="3_aoeox"]
 [ext_resource type="PackedScene" uid="uid://esb0d3hvjvp2" path="res://scenes/npc/npc_waypoint_entity.tscn" id="3_tnc23"]
+[ext_resource type="PackedScene" uid="uid://bou4qis7wl682" path="res://scenes/player/player.tscn" id="4_aoeox"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_wemg5"]
 panorama = ExtResource("3_aoeox")
@@ -19,6 +20,8 @@ sky = SubResource("Sky_ob46e")
 vertices = PackedVector3Array(-13.912109, 0.25, -12.526123, -13.912109, 0.25, 10.473877, 13.837891, 0.25, 10.473877, 13.837891, 0.25, -12.526123)
 polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
 
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_g4v3v"]
+
 [node name="NpcLocomotion" type="Node" unique_id=1337612822]
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=624929912]
@@ -34,9 +37,6 @@ stretch_shrink = 2
 handle_input_locally = false
 size = Vector2i(576, 324)
 render_target_update_mode = 4
-
-[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport" unique_id=1272359060]
-transform = Transform3D(1, 0, 0, 0, 0.6770191, 0.7359655, 0, -0.7359655, 0.6770191, -0.6462442, 8.20679, 8.897949)
 
 [node name="NpcEntity" parent="SubViewportContainer/SubViewport" unique_id=1362880304 instance=ExtResource("1_fwnqx")]
 transform = Transform3D(0.61555576, 0, 0.7880933, 0, 1, 0, -0.7880933, 0, 0.61555576, 0.8255472, 0, -0.98413754)
@@ -75,6 +75,9 @@ navigation_mesh = SubResource("NavigationMesh_714sa")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.09765625, -0.25268555, -1.0643921)
 size = Vector3(28.628906, 0.4946289, 23.923462)
 
+[node name="Player" parent="SubViewportContainer/SubViewport" unique_id=698550033 instance=ExtResource("4_aoeox")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.809371, 1.058383, 5.2866354)
+
 [node name="NpcWaypointEntity" parent="." unique_id=1858166502 instance=ExtResource("3_tnc23")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.2581654, 0.21034801, 0.872519)
 
@@ -86,3 +89,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14346313, 0.21034801, -4.40
 
 [node name="NpcWaypointEntity4" parent="." unique_id=948088191 instance=ExtResource("3_tnc23")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14346313, 0.21034801, 6.147618)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1367429068]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=707208421]
+shape = SubResource("WorldBoundaryShape3D_g4v3v")

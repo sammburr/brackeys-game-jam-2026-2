@@ -14,6 +14,8 @@ public partial class NpcEntity : CharacterBody3D
         WALKING
     }
 
+    [Export] public int NPCID;
+    
     [Export]
     public NavigationAgent3D NavAgent3D {private set; get; }
     [Export]
@@ -44,7 +46,7 @@ public partial class NpcEntity : CharacterBody3D
 
     private NpcController _npcAnimator;
     private string _currentMesh = "";
-    private List<Node3D> _wayPoints = [];
+    private List<Node3D> _wayPoints = new();
     private States _currentState = States.IDLE;
     private Node3D _lastWayPoint;
 

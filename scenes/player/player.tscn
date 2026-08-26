@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://bou4qis7wl682"]
+
+[ext_resource type="Script" uid="uid://dbak3jlewosrx" path="res://scripts/managers/player_manager/PlayerManager.cs" id="1_dovo2"]
+[ext_resource type="Script" uid="uid://cfei7ajt63532" path="res://scripts/managers/player_manager/PlayerMovement.cs" id="2_gmlin"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7wxnq"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_7wxnq"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_7wxnq"]
+size = Vector3(0.3170166, 0.390625, 0.48901367)
+
+[node name="Player" type="CharacterBody3D" unique_id=563441596]
+script = ExtResource("1_dovo2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1581766113]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_7wxnq")
+
+[node name="model" type="Node3D" parent="." unique_id=1298163267]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="model" unique_id=1622004792]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_7wxnq")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="model" unique_id=1720654758]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04034424, 1.3748515, -0.48943055)
+mesh = SubResource("BoxMesh_7wxnq")
+
+[node name="PlayerMovement" type="Node3D" parent="." unique_id=1700900089 node_paths=PackedStringArray("CameraPivot", "player")]
+script = ExtResource("2_gmlin")
+CameraPivot = NodePath("../CameraPivot")
+player = NodePath("..")
+
+[node name="CameraPivot" type="Node3D" parent="." unique_id=640189498]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8975043, 2.3406215, 0)
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot" unique_id=1030781749]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7194619, 0.17855382, 1.9082432)
+current = true
