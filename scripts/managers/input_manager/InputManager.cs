@@ -17,8 +17,7 @@ public partial class InputManager : Node
     public override void _Ready() => Logger.Success("Ready");
 
     #endregion
-
-
+    
     // Raw C# event to send a non-Godot object.
     public static event Action<ICustomParsedInput> InputParsed;
 

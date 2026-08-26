@@ -10,7 +10,7 @@
 [sub_resource type="BoxMesh" id="BoxMesh_7wxnq"]
 size = Vector3(0.3170166, 0.390625, 0.48901367)
 
-[node name="Player" type="CharacterBody3D" unique_id=563441596]
+[node name="Player" type="CharacterBody3D" unique_id=563441596 groups=["player"]]
 script = ExtResource("1_dovo2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1581766113]

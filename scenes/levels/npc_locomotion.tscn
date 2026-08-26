@@ -38,25 +38,8 @@ handle_input_locally = false
 size = Vector2i(576, 324)
 render_target_update_mode = 4
 
-[node name="NpcEntity" parent="SubViewportContainer/SubViewport" unique_id=1362880304 instance=ExtResource("1_fwnqx")]
-transform = Transform3D(0.61555576, 0, 0.7880933, 0, 1, 0, -0.7880933, 0, 0.61555576, 0.8255472, 0, -0.98413754)
+[node name="NpcEntity" parent="SubViewportContainer/SubViewport" unique_id=464620379 instance=ExtResource("1_fwnqx")]
 CurrentMesh = "Owner"
-
-[node name="NpcEntity2" parent="SubViewportContainer/SubViewport" unique_id=464620379 instance=ExtResource("1_fwnqx")]
-transform = Transform3D(0.61555576, 0, 0.7880933, 0, 1, 0, -0.7880933, 0, 0.61555576, -1.7184179, 0, -0.98413754)
-CurrentMesh = "Husband"
-
-[node name="NpcEntity3" parent="SubViewportContainer/SubViewport" unique_id=1860376874 instance=ExtResource("1_fwnqx")]
-transform = Transform3D(0.61555576, 0, 0.7880933, 0, 1, 0, -0.7880933, 0, 0.61555576, 3.5360053, 0, -0.98413754)
-CurrentMesh = "TwinOne"
-
-[node name="NpcEntity4" parent="SubViewportContainer/SubViewport" unique_id=1230514591 instance=ExtResource("1_fwnqx")]
-transform = Transform3D(0.61555576, 0, 0.7880933, 0, 1, 0, -0.7880933, 0, 0.61555576, 3.5360053, 0, 0.1461792)
-CurrentMesh = "TwinTwo"
-
-[node name="NpcEntity5" parent="SubViewportContainer/SubViewport" unique_id=621048549 instance=ExtResource("1_fwnqx")]
-transform = Transform3D(0.61555576, 0, 0.7880933, 0, 1, 0, -0.7880933, 0, 0.61555576, 0.48988795, 0, 0.1461792)
-CurrentMesh = "Wife"
 
 [node name="Enviroment" type="Node3D" parent="SubViewportContainer/SubViewport" unique_id=254879773]
 

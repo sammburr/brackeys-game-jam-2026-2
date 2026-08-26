@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using Godot.Collections;
 
 
+
+
+
 public partial class DialogueManager : Node{
     #region Singleton
 
@@ -15,7 +18,8 @@ public partial class DialogueManager : Node{
     public Array<NPCDialogue> data;
     
     public NPCDialogue DialogueActive = null;
-
+    
+    
     public bool Speaking = false;
     public bool InPrompt = false;
     public DialogueOption CurrentDialogue;

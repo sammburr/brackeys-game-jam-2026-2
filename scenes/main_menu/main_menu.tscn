@@ -126,26 +126,21 @@ text = "Q U I T"
 
 [node name="npc_skeleton" parent="." unique_id=1773078943 instance=ExtResource("5_wem23")]
 transform = Transform3D(-0.8340635, 0, -0.55166876, 0, 1, 0, 0.55166876, 0, -0.8340635, 4.8585997, 0.38774914, 0.6468755)
-PlaybackSpeed = 0.1
 
 [node name="npc_skeleton2" parent="." unique_id=360224086 instance=ExtResource("5_wem23")]
 transform = Transform3D(-0.95651627, 0, -0.29167998, 0, 1, 0, 0.29167998, 0, -0.95651627, 4.8039064, 0.38774914, 0.60818994)
 DefaultAnimation = "LookingAround"
 CurrentMesh = "Owner"
-PlaybackSpeed = 0.25
 
 [node name="npc_skeleton3" parent="." unique_id=852765133 instance=ExtResource("5_wem23")]
 transform = Transform3D(-0.70497143, 0, -0.709236, 0, 1, 0, 0.709236, 0, -0.70497143, 4.802413, 0.38774914, 0.7302059)
 CurrentMesh = "Husband"
-PlaybackSpeed = 0.25
 
 [node name="npc_skeleton4" parent="." unique_id=1947535937 instance=ExtResource("5_wem23")]
 transform = Transform3D(-0.78048915, 0, 0.62516963, 0, 1, 0, -0.62516963, 0, -0.78048915, 4.80456, 0.38774914, 0.30203795)
 DefaultAnimation = "Walking"
 CurrentMesh = "TwinOne"
-PlaybackSpeed = 0.25
 
 [node name="npc_skeleton5" parent="." unique_id=872275029 instance=ExtResource("5_wem23")]
 transform = Transform3D(-0.9905611, 0, 0.13707334, 0, 1, 0, -0.13707334, 0, -0.9905611, 4.8092475, 0.38774914, 0.3889376)
 CurrentMesh = "TwinTwo"
-PlaybackSpeed = 0.3

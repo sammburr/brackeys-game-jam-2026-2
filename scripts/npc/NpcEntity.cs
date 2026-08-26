@@ -22,8 +22,11 @@ public partial class NpcEntity : CharacterBody3D
     public float MoveSpeed {private set; get; } = 3.0f;
     [Export]
     public float RotationSpeed {private set; get; } = 10.0f;
+
+    [Export] private Area3D PlayerInteractArea;
     [Export]
     public NpcController NpcAnimator
+    
     {
         get => _npcAnimator;
         private set
@@ -49,6 +52,7 @@ public partial class NpcEntity : CharacterBody3D
     private List<Node3D> _wayPoints = new();
     private States _currentState = States.IDLE;
     private Node3D _lastWayPoint;
+    private bool _playerInRange = false;
 
     public override void _ValidateProperty(Godot.Collections.Dictionary property)
     {
@@ -70,7 +74,9 @@ public partial class NpcEntity : CharacterBody3D
             _wayPoints.Add((Node3D)entity);
 
         NpcAnimator.CurrentMesh = _currentMesh;
-
+        PlayerInteractArea.BodyEntered += BodyEntered;
+        PlayerInteractArea.BodyExited += BodyExited;
+        
         _ = NextState();
     }
 
@@ -79,7 +85,7 @@ public partial class NpcEntity : CharacterBody3D
         var states = Enum.GetValues<States>();
         var nextRandomState = states[Random.Shared.Next(states.Length)];
 
-        Logger.Info($"NextState: {nextRandomState}");
+        // Logger.Info($"NextState: {nextRandomState}");
 
         _currentState = nextRandomState;
 
@@ -131,6 +137,18 @@ public partial class NpcEntity : CharacterBody3D
         NavAgent3D.TargetPosition = nextRandomWayPoint.GlobalPosition + jitter;
 
         _lastWayPoint = nextRandomWayPoint;
+    }
+
+    public void BodyEntered(Node3D body){
+        if (body.IsInGroup("player")) {
+            _playerInRange = true;
+        }
+    }
+
+    public void BodyExited(Node3D body){
+        if (body.IsInGroup("player")) {
+            _playerInRange = false;
+        }
     }
 
     private async Task StartTimer(float seconds)

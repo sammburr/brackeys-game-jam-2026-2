@@ -38,8 +38,8 @@ public partial class PlayerMovement : Node3D
         if (!player.IsOnFloor())
             velocity.Y -= _gravity * (float)delta;
 
-        Vector2 inputDir = Input.GetVector("player_move_left", "player_move_right", "player_move_forward", "player_move_back");
-        Vector3 direction = (player.Transform.Basis * new Vector3(inputDir.X, 0, inputDir.Y)).Normalized();
+        Vector2 inputDir = PlayerManager.Instance.InputVector;
+            Vector3 direction = (player.Transform.Basis * new Vector3(inputDir.X, 0, inputDir.Y)).Normalized();
 
         if (direction.LengthSquared() > 0) {
             velocity.X = direction.X * Speed;
