@@ -6,7 +6,6 @@
 script = ExtResource("1_2i2bv")
 requiredTag = "grady_accused_brady"
 exitTag = "diag3"
-bannedTag = "diag3"
 ChoiceText = "Grady said you dunnit"
 ResponseText = "Grady's a stupid cunt if I'm being frank"
 metadata/_custom_type_script = "uid://dgp4iko852e0n"

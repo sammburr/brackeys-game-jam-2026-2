@@ -1,11 +1,12 @@
 [gd_resource type="Resource" script_class="DialogueOption" format=3 uid="uid://41wyfmpc0ovk"]
 
 [ext_resource type="Script" uid="uid://dgp4iko852e0n" path="res://scripts/managers/dialogue_manager/DialogueOption.cs" id="1_0mnsl"]
+[ext_resource type="Resource" uid="uid://dreu6oebfr5i2" path="res://scripts/managers/dialogue_manager/NPCDialogues/NPC2/diag2.1.tres" id="1_4mmdq"]
 
 [resource]
 script = ExtResource("1_0mnsl")
 exitTag = "diag2"
-bannedTag = "diag2"
 ChoiceText = "Brady? Nice name mate"
 ResponseText = "Get out of my house."
+NextDialogue = ExtResource("1_4mmdq")
 metadata/_custom_type_script = "uid://dgp4iko852e0n"

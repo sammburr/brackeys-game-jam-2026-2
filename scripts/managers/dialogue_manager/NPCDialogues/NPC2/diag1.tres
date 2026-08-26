@@ -5,7 +5,6 @@
 [resource]
 script = ExtResource("1_mjnhp")
 exitTag = "brady_accused_grady"
-bannedTag = "brady_accused_grady"
 ChoiceText = "Howdy Brady! Did you break the statue?"
 ResponseText = "No, I think it was Grady!"
 metadata/_custom_type_script = "uid://dgp4iko852e0n"
