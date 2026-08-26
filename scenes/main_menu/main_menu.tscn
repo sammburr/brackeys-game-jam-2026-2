@@ -26,6 +26,7 @@ sky = SubResource("Sky_ob46e")
 [node name="MainMenu" type="Node" unique_id=286089849 node_paths=PackedStringArray("StartGameButton", "QuitGameButton")]
 script = ExtResource("1_0ebjn")
 StartGameButton = NodePath("UI/MarginContainer/VBoxContainer/MarginContainer2/StartGame")
+_nextScene = "dialogue-ui"
 QuitGameButton = NodePath("UI/MarginContainer/VBoxContainer/MarginContainer/Quit")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=-1276492005]

@@ -38,13 +38,21 @@ public partial class DialogueUI : Control{
 		_mainLabel.Text = option.ResponseText;
 		_promptContainer.Visible = false;
 		DialogueManager.Instance.InPrompt = true;
+		DialogueManager.Instance.CurrentDialogue = option;
 		DialogueManager.Instance.AddTag(option.exitTag);
+		DialogueManager.Instance.MarkAsSaid(option.ID);
 		_actionButton.Text = "Continue";
 	}
 
 	private void ActionButtonPressed(){
 		if (DialogueManager.Instance.InPrompt) {
-			ResetUIToPrompts();
+			if (DialogueManager.Instance.CurrentDialogue.NextDialogue != null) {
+				SelectedPrompt(DialogueManager.Instance.CurrentDialogue.NextDialogue);
+			}
+			else {
+				ResetUIToPrompts();
+
+			}
 		}
 		else {
 			HideDialogueScreen();
@@ -54,7 +62,7 @@ public partial class DialogueUI : Control{
 	private void ResetUIToPrompts(){
 		_promptContainer.Visible = true;
 		DialogueManager.Instance.InPrompt = false;
-		LoadDialogueData(DialogueManager.Instance.ActiveDialogue);
+		LoadDialogueData(DialogueManager.Instance.DialogueActive);
 		_actionButton.Text = "Leave";
 	}
 
