@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://d1wpjskhebyx2"]
+
+[ext_resource type="PackedScene" uid="uid://bwi2f6ilawalp" path="res://scenes/npc/skeleton.tscn" id="1_53423"]
+[ext_resource type="Script" uid="uid://b3jq78h586wge" path="res://scripts/npc/NpcEntity.cs" id="1_lwxlj"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_omjkn"]
+
+[node name="NpcEntity" type="CharacterBody3D" unique_id=464620379 node_paths=PackedStringArray("NavAgent3D", "NpcAnimator")]
+script = ExtResource("1_lwxlj")
+NavAgent3D = NodePath("NavigationAgent3D")
+NpcAnimator = NodePath("npc_skeleton")
+
+[node name="npc_skeleton" parent="." unique_id=1773078943 instance=ExtResource("1_53423")]
+transform = Transform3D(-7.3915953e-07, 0, -16.909998, 0, 16.909998, 0, 16.909998, 0, -7.3915953e-07, 0, 0, 0)
+CurrentMesh = "Owner"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1853928705]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_omjkn")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=406639855]

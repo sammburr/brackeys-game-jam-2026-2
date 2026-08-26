@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://cqwbe2etcl16v"]
+
+[ext_resource type="PackedScene" uid="uid://d1wpjskhebyx2" path="res://scenes/npc/npc_entity.tscn" id="1_fwnqx"]
+[ext_resource type="Texture2D" uid="uid://qjrvafhisiy8" path="res://assets/images/belfast_sunset_puresky_1k.exr" id="3_aoeox"]
+[ext_resource type="PackedScene" uid="uid://esb0d3hvjvp2" path="res://scenes/npc/npc_waypoint_entity.tscn" id="3_tnc23"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_wemg5"]
+panorama = ExtResource("3_aoeox")
+energy_multiplier = 0.1
+
+[sub_resource type="Sky" id="Sky_ob46e"]
+sky_material = SubResource("PanoramaSkyMaterial_wemg5")
+
+[sub_resource type="Environment" id="Environment_2cwst"]
+background_mode = 2
+sky = SubResource("Sky_ob46e")
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_714sa"]
+vertices = PackedVector3Array(-13.912109, 0.25, -12.526123, -13.912109, 0.25, 10.473877, 13.837891, 0.25, 10.473877, 13.837891, 0.25, -12.526123)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+
+[node name="NpcLocomotion" type="Node" unique_id=1337612822]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=624929912]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+stretch_shrink = 2
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1922456945]
+handle_input_locally = false
+size = Vector2i(576, 324)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport" unique_id=1272359060]
+transform = Transform3D(1, 0, 0, 0, 0.6770191, 0.7359655, 0, -0.7359655, 0.6770191, -0.6462442, 8.20679, 8.897949)
+
+[node name="NpcEntity" parent="SubViewportContainer/SubViewport" unique_id=1362880304 instance=ExtResource("1_fwnqx")]
+transform = Transform3D(0.61555576, 0, 0.7880933, 0, 1, 0, -0.7880933, 0, 0.61555576, 0.8255472, 0, -0.98413754)
+CurrentMesh = "Owner"
+
+[node name="NpcEntity2" parent="SubViewportContainer/SubViewport" unique_id=464620379 instance=ExtResource("1_fwnqx")]
+transform = Transform3D(0.61555576, 0, 0.7880933, 0, 1, 0, -0.7880933, 0, 0.61555576, -1.7184179, 0, -0.98413754)
+CurrentMesh = "Husband"
+
+[node name="NpcEntity3" parent="SubViewportContainer/SubViewport" unique_id=1860376874 instance=ExtResource("1_fwnqx")]
+transform = Transform3D(0.61555576, 0, 0.7880933, 0, 1, 0, -0.7880933, 0, 0.61555576, 3.5360053, 0, -0.98413754)
+CurrentMesh = "TwinOne"
+
+[node name="NpcEntity4" parent="SubViewportContainer/SubViewport" unique_id=1230514591 instance=ExtResource("1_fwnqx")]
+transform = Transform3D(0.61555576, 0, 0.7880933, 0, 1, 0, -0.7880933, 0, 0.61555576, 3.5360053, 0, 0.1461792)
+CurrentMesh = "TwinTwo"
+
+[node name="NpcEntity5" parent="SubViewportContainer/SubViewport" unique_id=621048549 instance=ExtResource("1_fwnqx")]
+transform = Transform3D(0.61555576, 0, 0.7880933, 0, 1, 0, -0.7880933, 0, 0.61555576, 0.48988795, 0, 0.1461792)
+CurrentMesh = "Wife"
+
+[node name="Enviroment" type="Node3D" parent="SubViewportContainer/SubViewport" unique_id=254879773]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport/Enviroment" unique_id=361311892]
+transform = Transform3D(0.5225726, 0.3409359, -0.7814605, -0.35151187, 0.9211968, 0.16683963, 0.7767607, 0.18750688, 0.60123533, -2.2410874, 1.8439574, -3.0188122)
+light_color = Color(0.7715771, 0.49881774, 0.2833024, 1)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewportContainer/SubViewport/Enviroment" unique_id=1531380557]
+environment = SubResource("Environment_2cwst")
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="SubViewportContainer/SubViewport" unique_id=2061401399]
+navigation_mesh = SubResource("NavigationMesh_714sa")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="SubViewportContainer/SubViewport/NavigationRegion3D" unique_id=1430640625]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.09765625, -0.25268555, -1.0643921)
+size = Vector3(28.628906, 0.4946289, 23.923462)
+
+[node name="NpcWaypointEntity" parent="." unique_id=1858166502 instance=ExtResource("3_tnc23")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.2581654, 0.21034801, 0.872519)
+
+[node name="NpcWaypointEntity2" parent="." unique_id=1384438745 instance=ExtResource("3_tnc23")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.811728, 0.21034801, 0.872519)
+
+[node name="NpcWaypointEntity3" parent="." unique_id=2079125427 instance=ExtResource("3_tnc23")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14346313, 0.21034801, -4.4089704)
+
+[node name="NpcWaypointEntity4" parent="." unique_id=948088191 instance=ExtResource("3_tnc23")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14346313, 0.21034801, 6.147618)

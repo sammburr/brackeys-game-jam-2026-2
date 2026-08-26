@@ -6,6 +6,12 @@ using Array = System.Array;
 [Tool]
 public partial class Main : Node
 {
+
+    public enum EntityTypes
+    {
+        NPCWayPoint
+    }
+
     [Export]
     public Dictionary<string, string> Scenes
     {

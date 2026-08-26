@@ -9,9 +9,10 @@ script = ExtResource("1_o5qli")
 Scenes = Dictionary[String, String]({
 "dialogue-ui": "res://scenes/dialogue_ui.tscn",
 "main-menu": "res://scenes/main_menu/main_menu.tscn",
+"npc-locomotion": "res://scenes/levels/npc_locomotion.tscn",
 "test-level": "res://scenes/levels/test.tscn"
 })
-StartupScene = "main-menu"
+StartupScene = "npc-locomotion"
 AudioStreams = Dictionary[String, String]({
 "menu-ambi": "res://assets/audio/main_menu_ambi.ogg"
 })

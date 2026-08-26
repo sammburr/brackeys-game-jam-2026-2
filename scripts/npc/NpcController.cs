@@ -52,6 +52,17 @@ public partial class NpcController : Node3D
     }
 
     [Export]
+    public float PlaybackSpeed
+    {
+        get => _playbackSpeed;
+        set
+        {
+            _playbackSpeed = value;
+            PlayDefaultAnimation();
+        }
+    }
+
+    [Export]
     public bool Refresh
     {
         get => false;
@@ -66,6 +77,7 @@ public partial class NpcController : Node3D
     private string _defaultAnimation;
     private Skeleton3D _skeleton;
     private string _currentMesh = "";
+    private float _playbackSpeed = 1.0f;
 
     public override void _Ready()
     {
@@ -92,9 +104,14 @@ public partial class NpcController : Node3D
         }
     }
 
+    public void PlayAnimation(string name, bool loop=false, float playbackSpeed=1.0f)
+    {
+        _animationPlayer.Play(name, -1, playbackSpeed, loop);
+    }
+
     private void PlayDefaultAnimation()
     {
-        _animationPlayer.Play(_defaultAnimation, -1, 0.25f);
+        _animationPlayer.Play(_defaultAnimation, -1, _playbackSpeed);
     }
 
     private void UpdateMeshVisibility()
