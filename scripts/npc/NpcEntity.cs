@@ -14,7 +14,7 @@ public partial class NpcEntity : CharacterBody3D
         WALKING
     }
 
-    [Export] public int NPCID;
+    [Export] public int ID;
     
     [Export]
     public NavigationAgent3D NavAgent3D {private set; get; }
@@ -52,7 +52,7 @@ public partial class NpcEntity : CharacterBody3D
     private List<Node3D> _wayPoints = new();
     private States _currentState = States.IDLE;
     private Node3D _lastWayPoint;
-    private bool _playerInRange = false;
+    public bool PlayerInRange = false;
 
     public override void _ValidateProperty(Godot.Collections.Dictionary property)
     {
@@ -141,13 +141,13 @@ public partial class NpcEntity : CharacterBody3D
 
     public void BodyEntered(Node3D body){
         if (body.IsInGroup("player")) {
-            _playerInRange = true;
+            PlayerInRange = true;
         }
     }
 
     public void BodyExited(Node3D body){
         if (body.IsInGroup("player")) {
-            _playerInRange = false;
+            PlayerInRange = false;
         }
     }
 

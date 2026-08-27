@@ -19,6 +19,18 @@ _promptContainer = NodePath("Control/prompts")
 _actionButton = NodePath("Control/ActionButton")
 MainUI = NodePath("Control")
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1319535072]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 848.0
+offset_bottom = 352.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0, 1, 0.23921569)
+
 [node name="Control" type="Control" parent="." unique_id=1983865694]
 anchors_preset = 0
 offset_left = 51.0
@@ -63,30 +75,3 @@ offset_top = 199.0
 offset_right = 144.0
 offset_bottom = 230.0
 text = "woo action button"
-
-[node name="Control2" type="Control" parent="." unique_id=1894547816]
-anchors_preset = 0
-offset_left = 407.0
-offset_top = 52.0
-offset_right = 447.0
-offset_bottom = 92.0
-
-[node name="Button" type="Button" parent="Control2" unique_id=1914328107]
-layout_mode = 0
-offset_right = 111.0
-offset_bottom = 31.0
-text = "Talk to Grady
-"
-
-[node name="Button2" type="Button" parent="Control2" unique_id=780518164]
-layout_mode = 0
-offset_left = 145.0
-offset_top = -1.0
-offset_right = 256.0
-offset_bottom = 30.0
-text = "Talk to Brady
-
-"
-
-[connection signal="button_up" from="Control2/Button" to="." method="SetActiveDialogue" binds= [0]]
-[connection signal="button_up" from="Control2/Button2" to="." method="SetActiveDialogue" binds= [1]]

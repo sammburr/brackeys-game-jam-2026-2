@@ -9,6 +9,7 @@ public partial class PlayerManager : CharacterBody3D
 
     #endregion
 
+    #region Input Classes
     private class PlayerInput : ICustomParsedInput
     {
         public Vector2 MoveDirection;
@@ -17,35 +18,41 @@ public partial class PlayerManager : CharacterBody3D
     private class PlayerInputContext : ICustomInputContext
     {
         private Vector2 _moveDirection;
+        private bool interact;
 
         public ICustomParsedInput Restart()
         {
             _moveDirection = Vector2.Zero;
+            
             return new PlayerInput { MoveDirection = _moveDirection, PlayerInteract = false };
         }
 
         public ICustomParsedInput TransformInput(InputEvent @event)
         {
-            bool interact = @event.IsActionPressed("player_interact");
+            bool interact = Input.IsActionPressed("player_interact");
 
             float x = (Input.IsActionPressed("player_move_right") ? 1f : 0f) - (Input.IsActionPressed("player_move_left") ? 1f : 0f);
             float y = (Input.IsActionPressed("player_move_back") ? 1f : 0f) - (Input.IsActionPressed("player_move_forward") ? 1f : 0f);
             var newMoveDirection = new Vector2(x, y).Normalized();
 
-            if (newMoveDirection == _moveDirection && !interact) return new EmptyParsedInput();
+            // if (newMoveDirection == _moveDirection && !interact) return new EmptyParsedInput();
 
             _moveDirection = newMoveDirection;
-
+            
             return new PlayerInput {
                 MoveDirection = _moveDirection,
                 PlayerInteract = interact
             };
         }
     }
+    #endregion
+
 
     private PlayerInputContext _inputContext;
     public Vector2 InputVector;
+    public bool PlayerInteracted;
     
+
     public override void _Ready(){
         _inputContext = new PlayerInputContext();
         InputManager.PushContext(_inputContext);
@@ -59,6 +66,7 @@ public partial class PlayerManager : CharacterBody3D
     private void OnInputParsed(ICustomParsedInput parsed){
         if (parsed is not PlayerInput input) return;
         InputVector = input.MoveDirection;
+        PlayerInteracted = input.PlayerInteract;
     }
     
 }

@@ -15,18 +15,45 @@ public partial class DialogueManager : Node{
 
     #endregion
 
+    #region Input
+    private class DialogueInput : ICustomParsedInput
+    {
+    }
+    private class DialogueInputContext : ICustomInputContext
+    {
+        public ICustomParsedInput Restart()
+        {
+            return new DialogueInput{};
+        }
+
+        public ICustomParsedInput TransformInput(InputEvent @event)
+        {
+            var pressedQuit = @event.IsActionPressed("main_menu_quit_game");
+
+            if(!pressedQuit) return new EmptyParsedInput();
+
+            return new DialogueInput{};
+        }
+    }
+    #endregion
+
+    private DialogueInputContext _inputContext;
+    
     public Array<NPCDialogue> data;
     
     public NPCDialogue DialogueActive = null;
     
-    
     public bool Speaking = false;
     public bool InPrompt = false;
     public DialogueOption CurrentDialogue;
+
+    private Node DialogueUI = null;
     
     public List<string> tags = new();
     public List<int> spokenOptionIDs = new();
 
+    [Signal] public delegate void DialogueStartedEventHandler(int npcId);
+    
     public void LoadDialogueData(Array<NPCDialogue> dialogues){
         int dialogueCount = 0;
         for (int i = 0; i < dialogues.Count; i++) {
@@ -41,6 +68,27 @@ public partial class DialogueManager : Node{
 
     public void SetActiveDialogue(int id){
         DialogueActive = data[id];
+    }
+
+    public void StartDialogue(int id){
+        GD.Print($"aa {id}");
+        if (!Speaking) {
+            SceneManager.TryInstanciateScene("dialogue-ui", out DialogueUI);
+            _inputContext = new DialogueInputContext();
+            InputManager.PushContext(_inputContext);
+            Input.MouseMode = Input.MouseModeEnum.Visible;
+            Speaking = true;
+        }
+
+
+        EmitSignal(SignalName.DialogueStarted, id);
+    }
+
+    public void ExitDialogue(){
+        Input.MouseMode = Input.MouseModeEnum.Captured;
+        SceneManager.TryFreeScene(DialogueUI);
+        DialogueUI = null;
+        InputManager.PopContext();
     }
 
     public List<DialogueOption> GetValidOptions()
