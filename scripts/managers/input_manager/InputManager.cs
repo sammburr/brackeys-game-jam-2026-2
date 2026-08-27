@@ -31,13 +31,13 @@ public partial class InputManager : Node
             ICustomParsedInput parsedInput = context.TransformInput(@event);
             if(parsedInput is not EmptyParsedInput)
             {
-                Logger.Info($"Parsed {parsedInput.GetType().Name} via {context.GetType().Name}");
+                // Logger.Info($"Parsed {parsedInput.GetType().Name} via {context.GetType().Name}");
                 InputParsed?.Invoke(parsedInput);
             }
         }
         else if(@event.IsPressed() && !@event.IsEcho())
         {
-            // Logger.Warn($"Received {@event.GetType().Name} but InputStack is empty, ignoring");
+            Logger.Warn($"Received {@event.GetType().Name} but InputStack is empty, ignoring");
         }
     }
 

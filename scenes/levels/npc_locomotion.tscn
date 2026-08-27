@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://d1wpjskhebyx2" path="res://scenes/npc/npc_entity.tscn" id="1_fwnqx"]
 [ext_resource type="Texture2D" uid="uid://qjrvafhisiy8" path="res://assets/images/belfast_sunset_puresky_1k.exr" id="3_aoeox"]
+[ext_resource type="Script" uid="uid://coja2ciqlcq4c" path="res://scripts/npc/NPCManager.cs" id="3_nersw"]
 [ext_resource type="PackedScene" uid="uid://esb0d3hvjvp2" path="res://scenes/npc/npc_waypoint_entity.tscn" id="3_tnc23"]
 [ext_resource type="PackedScene" uid="uid://bou4qis7wl682" path="res://scenes/player/player.tscn" id="4_aoeox"]
 
@@ -38,9 +39,6 @@ handle_input_locally = false
 size = Vector2i(576, 324)
 render_target_update_mode = 4
 
-[node name="NpcEntity" parent="SubViewportContainer/SubViewport" unique_id=464620379 instance=ExtResource("1_fwnqx")]
-CurrentMesh = "Owner"
-
 [node name="Enviroment" type="Node3D" parent="SubViewportContainer/SubViewport" unique_id=254879773]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport/Enviroment" unique_id=361311892]
@@ -60,6 +58,16 @@ size = Vector3(28.628906, 0.4946289, 23.923462)
 
 [node name="Player" parent="SubViewportContainer/SubViewport" unique_id=698550033 instance=ExtResource("4_aoeox")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.809371, 1.058383, 5.2866354)
+
+[node name="NPCManager" type="Node3D" parent="SubViewportContainer/SubViewport" unique_id=1511609348]
+script = ExtResource("3_nersw")
+
+[node name="NpcEntity" parent="SubViewportContainer/SubViewport/NPCManager" unique_id=464620379 instance=ExtResource("1_fwnqx")]
+CurrentMesh = "Owner"
+
+[node name="NpcEntity2" parent="SubViewportContainer/SubViewport/NPCManager" unique_id=1605002570 instance=ExtResource("1_fwnqx")]
+ID = 1
+CurrentMesh = "Husband"
 
 [node name="NpcWaypointEntity" parent="." unique_id=1858166502 instance=ExtResource("3_tnc23")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.2581654, 0.21034801, 0.872519)
