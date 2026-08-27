@@ -10,7 +10,6 @@ radius = 3.1811523
 
 [node name="NpcEntity" type="CharacterBody3D" unique_id=464620379 node_paths=PackedStringArray("NavAgent3D", "PlayerInteractArea", "NpcAnimator")]
 script = ExtResource("1_lwxlj")
-NPCID = -1
 NavAgent3D = NodePath("NavigationAgent3D")
 MoveSpeed = 1.0
 PlayerInteractArea = NodePath("PlayerInteractArea")

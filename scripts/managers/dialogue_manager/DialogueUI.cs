@@ -13,10 +13,17 @@ public partial class DialogueUI : Control{
 	
 	public override void _Ready(){
 		_actionButton.ButtonUp += ActionButtonPressed;
-		MainUI.Visible = false;
+		DialogueManager.Instance.DialogueStarted += SetActiveDialogue;
 
+		MainUI.Visible = false; // do last lol
 	}
 
+	public override void _ExitTree(){
+		if (DialogueManager.Instance != null)
+			DialogueManager.Instance.DialogueStarted -= SetActiveDialogue;
+	}
+
+	
 	private void LoadDialogueData(NPCDialogue d){
 		_mainLabel.Text = d.InitialMessage;
 
@@ -66,17 +73,19 @@ public partial class DialogueUI : Control{
 		_actionButton.Text = "Leave";
 	}
 
-	public void SetActiveDialogue(int d){
-		DialogueManager.Instance.SetActiveDialogue(d);
-		LoadDialogueData(DialogueManager.Instance.data[d]);
+	public void SetActiveDialogue(int id){
+		GD.Print("aa");
+		DialogueManager.Instance.SetActiveDialogue(id);
+		LoadDialogueData(DialogueManager.Instance.data[id]);
 		MainUI.Visible = true;
 		DialogueManager.Instance.Speaking = true;
 		ResetUIToPrompts();
 	}
 
+
 	public void HideDialogueScreen(){
-		MainUI.Visible = false;
 		DialogueManager.Instance.InPrompt = false;
 		DialogueManager.Instance.Speaking = false;
+		DialogueManager.Instance.ExitDialogue();
 	}
 }
