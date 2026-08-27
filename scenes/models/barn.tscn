@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://c84o5r7hn7yys"]
+
+[ext_resource type="PackedScene" uid="uid://diuvu64xw4o6a" path="res://assets/models/barn.glb" id="1_ksekw"]
+[ext_resource type="Texture2D" uid="uid://dv5jkt2fob1s" path="res://assets/models/barn_Barn.png" id="2_2um68"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hmdah"]
+albedo_texture = ExtResource("2_2um68")
+
+[node name="barn" unique_id=1226587867 instance=ExtResource("1_ksekw")]
+
+[node name="Cube_014" parent="." index="0" unique_id=611996628]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2289815, 0)
+material_override = SubResource("StandardMaterial3D_hmdah")

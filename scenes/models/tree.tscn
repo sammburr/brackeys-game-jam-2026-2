@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://b2calus3xyguy"]
+
+[ext_resource type="PackedScene" uid="uid://cbac1gcdm3ujg" path="res://assets/models/tree.glb" id="1_xa27t"]
+
+[node name="tree" unique_id=1644479854 instance=ExtResource("1_xa27t")]
+
+[node name="Sphere_002" parent="." index="0" unique_id=28517947]
+transform = Transform3D(0.08201423, -0.24397795, -0.19461621, 0.021873273, 0.38647676, -0.13314068, 0.23427975, 0.049326293, 0.08055976, -0.17888987, 1.1417936, 0.1421051)
