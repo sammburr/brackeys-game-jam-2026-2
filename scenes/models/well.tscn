@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://47p5rvhjf1yx"]
+
+[ext_resource type="PackedScene" uid="uid://bxi1ksmybgbpr" path="res://assets/models/well.glb" id="1_3ugts"]
+
+[node name="well" unique_id=643093321 instance=ExtResource("1_3ugts")]
+
+[node name="Cube_024" parent="." index="0" unique_id=1346010131]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.95686316, 0)

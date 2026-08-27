@@ -5,6 +5,13 @@
 [ext_resource type="Script" uid="uid://coja2ciqlcq4c" path="res://scripts/npc/NPCManager.cs" id="3_nersw"]
 [ext_resource type="PackedScene" uid="uid://esb0d3hvjvp2" path="res://scenes/npc/npc_waypoint_entity.tscn" id="3_tnc23"]
 [ext_resource type="PackedScene" uid="uid://bou4qis7wl682" path="res://scenes/player/player.tscn" id="4_aoeox"]
+[ext_resource type="PackedScene" uid="uid://cpcfijhtvk1vv" path="res://assets/models/the_big_house.glb" id="5_47y70"]
+[ext_resource type="PackedScene" uid="uid://be86kdyl1vkbd" path="res://scenes/models/stone_wall.tscn" id="7_wemg5"]
+[ext_resource type="PackedScene" uid="uid://c84o5r7hn7yys" path="res://scenes/models/barn.tscn" id="8_2cwst"]
+[ext_resource type="PackedScene" uid="uid://b2calus3xyguy" path="res://scenes/models/tree.tscn" id="8_vohan"]
+[ext_resource type="PackedScene" uid="uid://ci3ch84cecbea" path="res://scenes/models/shed.tscn" id="10_mwdtf"]
+[ext_resource type="PackedScene" uid="uid://47p5rvhjf1yx" path="res://scenes/models/well.tscn" id="10_tcvj5"]
+[ext_resource type="PackedScene" uid="uid://beucrysxxb7v3" path="res://scenes/models/small_tree.tscn" id="12_jdxhn"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_wemg5"]
 panorama = ExtResource("3_aoeox")
@@ -18,7 +25,7 @@ background_mode = 2
 sky = SubResource("Sky_ob46e")
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_714sa"]
-vertices = PackedVector3Array(-13.912109, 0.25, -12.526123, -13.912109, 0.25, 10.473877, 13.837891, 0.25, 10.473877, 13.837891, 0.25, -12.526123)
+vertices = PackedVector3Array(-14.621094, 0.25, -33.74002, -14.621094, 0.25, 18.00998, 42.128906, 0.25, 18.00998, 42.128906, 0.25, -33.74002)
 polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_g4v3v"]
@@ -53,8 +60,8 @@ environment = SubResource("Environment_2cwst")
 navigation_mesh = SubResource("NavigationMesh_714sa")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="SubViewportContainer/SubViewport/NavigationRegion3D" unique_id=1430640625]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.09765625, -0.25268555, -1.0643921)
-size = Vector3(28.628906, 0.4946289, 23.923462)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.733643, -0.25268555, -7.9216766)
+size = Vector3(57.709473, 0.4946289, 52.63669)
 
 [node name="Player" parent="SubViewportContainer/SubViewport" unique_id=698550033 instance=ExtResource("4_aoeox")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.809371, 1.058383, 5.2866354)
@@ -66,8 +73,43 @@ script = ExtResource("3_nersw")
 CurrentMesh = "Owner"
 
 [node name="NpcEntity2" parent="SubViewportContainer/SubViewport/NPCManager" unique_id=1605002570 instance=ExtResource("1_fwnqx")]
-ID = 1
 CurrentMesh = "Husband"
+
+[node name="the_big_house" parent="SubViewportContainer/SubViewport" unique_id=1593952811 instance=ExtResource("5_47y70")]
+transform = Transform3D(-8.23, 0, 7.1948944e-07, 0, 8.23, 0, -7.1948944e-07, 0, -8.23, 29.976513, 4.3270926, -0.5137391)
+
+[node name="stone_wall" parent="SubViewportContainer/SubViewport" unique_id=1114834174 instance=ExtResource("7_wemg5")]
+transform = Transform3D(3.72, 0, 0, 0, 3.72, 0, 0, 0, 3.72, -13.216369, -9.536743e-07, 4.7540655)
+
+[node name="stone_wall2" parent="SubViewportContainer/SubViewport" unique_id=1424364387 instance=ExtResource("7_wemg5")]
+transform = Transform3D(3.72, 0, 0, 0, 3.72, 0, 0, 0, 3.72, -13.216369, -9.536743e-07, -0.61319447)
+
+[node name="stone_wall3" parent="SubViewportContainer/SubViewport" unique_id=1064050181 instance=ExtResource("7_wemg5")]
+transform = Transform3D(3.72, 0, 0, 0, 3.72, 0, 0, 0, 3.72, -13.216369, -9.536743e-07, -6.1148195)
+
+[node name="barn" parent="SubViewportContainer/SubViewport" unique_id=1226587867 instance=ExtResource("8_2cwst")]
+transform = Transform3D(-5.0574073e-07, 0, -11.569999, 0, 11.569999, 0, 11.569999, 0, -5.0574073e-07, -6.588186, 0, -19.315685)
+
+[node name="tree" parent="SubViewportContainer/SubViewport" unique_id=1644479854 instance=ExtResource("8_vohan")]
+transform = Transform3D(5.087754, 0, 2.1153874, 0, 5.51, 0, -2.1153874, 0, 5.087754, 6, 0, -7)
+
+[node name="tree2" parent="SubViewportContainer/SubViewport" unique_id=1065724661 instance=ExtResource("8_vohan")]
+transform = Transform3D(0.4185754, 0, -4.3398604, 0, 4.3599997, 0, 4.3398604, 0, 0.4185754, 3.4692006, 0, -7.6771603)
+
+[node name="tree3" parent="SubViewportContainer/SubViewport" unique_id=1261358074 instance=ExtResource("8_vohan")]
+transform = Transform3D(-1.1198632, 0, 4.213728, 0, 4.3599997, 0, -4.213728, 0, -1.1198632, 8.016092, -1.9073486e-06, -4.6410522)
+
+[node name="well" parent="SubViewportContainer/SubViewport" unique_id=643093321 instance=ExtResource("10_tcvj5")]
+transform = Transform3D(2.526097, 0, 1.3410565, 0, 2.86, 0, -1.3410565, 0, 2.526097, -10.893068, 0.012290955, 6.1666827)
+
+[node name="shed" parent="SubViewportContainer/SubViewport" unique_id=464921775 instance=ExtResource("10_mwdtf")]
+transform = Transform3D(-1.5823521e-07, 0, 3.6199996, 0, 3.6199996, 0, -3.6199996, 0, -1.5823521e-07, -11.282157, 0, 13.698062)
+
+[node name="small_tree" parent="SubViewportContainer/SubViewport" unique_id=1306024110 instance=ExtResource("12_jdxhn")]
+transform = Transform3D(3.5156264, 0, 3.2973888, 0, 4.82, 0, -3.2973888, 0, 3.5156264, 5, 0.17748475, -7.7482986)
+
+[node name="small_tree2" parent="SubViewportContainer/SubViewport" unique_id=128167293 instance=ExtResource("12_jdxhn")]
+transform = Transform3D(4.784668, 0, -0.58254266, 0, 4.8200006, 0, 0.58254266, 0, 4.784668, 9.011937, 0.17748475, -8.220596)
 
 [node name="NpcWaypointEntity" parent="." unique_id=1858166502 instance=ExtResource("3_tnc23")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.2581654, 0.21034801, 0.872519)

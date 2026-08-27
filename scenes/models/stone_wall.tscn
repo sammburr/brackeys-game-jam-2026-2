@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://be86kdyl1vkbd"]
+
+[ext_resource type="PackedScene" uid="uid://bkju0usi84etn" path="res://assets/models/stone_wall.glb" id="1_vykry"]
+[ext_resource type="Texture2D" uid="uid://c5i2smc0mfvhq" path="res://assets/models/stone_wall_StoneWall128.png" id="2_hmdah"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mc4io"]
+albedo_texture = ExtResource("2_hmdah")
+
+[node name="stone_wall" unique_id=1114834174 instance=ExtResource("1_vykry")]
+
+[node name="Cube_022" parent="." index="0" unique_id=1115919888]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.19084483, 0)
+material_override = SubResource("StandardMaterial3D_mc4io")

@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://ci3ch84cecbea"]
+
+[ext_resource type="PackedScene" uid="uid://dmokvde8y7l5a" path="res://assets/models/shed.glb" id="1_6jtlh"]
+
+[node name="shed" unique_id=464921775 instance=ExtResource("1_6jtlh")]
+
+[node name="Shed" parent="." index="0" unique_id=622945060]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.066313446, 0)
