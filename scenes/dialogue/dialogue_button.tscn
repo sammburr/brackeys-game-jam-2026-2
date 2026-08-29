@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://caqxewqypplq2"]
+
+[ext_resource type="FontFile" uid="uid://bb45fastcyr" path="res://assets/fonts/DotGothic16-Regular.ttf" id="1_dac1i"]
+
+[node name="Button" type="Button" unique_id=1003281591]
+custom_minimum_size = Vector2(400, 0)
+offset_right = 400.0
+offset_bottom = 61.0
+theme_override_fonts/font = ExtResource("1_dac1i")
+theme_override_font_sizes/font_size = 36
+text = "afsafsasfrer"

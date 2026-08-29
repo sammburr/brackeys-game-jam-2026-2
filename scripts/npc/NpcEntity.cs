@@ -14,8 +14,9 @@ public partial class NpcEntity : CharacterBody3D
         WALKING
     }
 
-    [Export] public int ID;
-    
+    [Export] public int ID = -1;
+    [Export] private Label3D _interactBillBoard;
+
     [Export]
     public NavigationAgent3D NavAgent3D {private set; get; }
     [Export]
@@ -76,12 +77,15 @@ public partial class NpcEntity : CharacterBody3D
         NpcAnimator.CurrentMesh = _currentMesh;
         PlayerInteractArea.BodyEntered += BodyEntered;
         PlayerInteractArea.BodyExited += BodyExited;
-        
+
+        _interactBillBoard.Text = $"[E] talk to {ID}";
+        _interactBillBoard.Visible = false;
+
         _ = NextState();
     }
 
-    private async Task NextState()
-    {
+    private async Task NextState(){
+        if (ID == 0) return;
         var states = Enum.GetValues<States>();
         var nextRandomState = states[Random.Shared.Next(states.Length)];
 
@@ -142,12 +146,15 @@ public partial class NpcEntity : CharacterBody3D
     public void BodyEntered(Node3D body){
         if (body.IsInGroup("player")) {
             PlayerInRange = true;
+            _interactBillBoard.Visible = true;
         }
     }
 
     public void BodyExited(Node3D body){
         if (body.IsInGroup("player")) {
             PlayerInRange = false;
+            _interactBillBoard.Visible = false;
+
         }
     }
 

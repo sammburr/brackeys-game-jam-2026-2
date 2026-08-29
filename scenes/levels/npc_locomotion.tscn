@@ -43,7 +43,7 @@ stretch_shrink = 2
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1922456945]
 handle_input_locally = false
-size = Vector2i(576, 324)
+size = Vector2i(800, 450)
 render_target_update_mode = 4
 
 [node name="Enviroment" type="Node3D" parent="SubViewportContainer/SubViewport" unique_id=254879773]
@@ -70,10 +70,29 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.809371, 1.058383, 5.2866354
 script = ExtResource("3_nersw")
 
 [node name="NpcEntity" parent="SubViewportContainer/SubViewport/NPCManager" unique_id=464620379 instance=ExtResource("1_fwnqx")]
+transform = Transform3D(0.4804819, 0, 0.8770046, 0, 1, 0, -0.8770046, 0, 0.4804819, 4.1754475, 0.9941888, 2.6283383)
+ID = 0
 CurrentMesh = "Owner"
 
 [node name="NpcEntity2" parent="SubViewportContainer/SubViewport/NPCManager" unique_id=1605002570 instance=ExtResource("1_fwnqx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6948526, 0, -0.84282875)
+ID = 1
 CurrentMesh = "Husband"
+
+[node name="NpcEntity3" parent="SubViewportContainer/SubViewport/NPCManager" unique_id=1118889458 instance=ExtResource("1_fwnqx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3502154, 0, -1.2350459)
+ID = 1
+CurrentMesh = "TwinOne"
+
+[node name="NpcEntity4" parent="SubViewportContainer/SubViewport/NPCManager" unique_id=1567867719 instance=ExtResource("1_fwnqx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5882783, 0, 1.1693029)
+ID = 1
+CurrentMesh = "TwinTwo"
+
+[node name="NpcEntity5" parent="SubViewportContainer/SubViewport/NPCManager" unique_id=2058585676 instance=ExtResource("1_fwnqx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19386435, 0, 1.5624499)
+ID = 1
+CurrentMesh = "Wife"
 
 [node name="the_big_house" parent="SubViewportContainer/SubViewport" unique_id=1593952811 instance=ExtResource("5_47y70")]
 transform = Transform3D(-8.23, 0, 7.1948944e-07, 0, 8.23, 0, -7.1948944e-07, 0, -8.23, 29.976513, 4.3270926, -0.5137391)
@@ -113,6 +132,27 @@ transform = Transform3D(4.784668, 0, -0.58254266, 0, 4.8200006, 0, 0.58254266, 0
 
 [node name="NpcWaypointEntity" parent="." unique_id=1858166502 instance=ExtResource("3_tnc23")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.2581654, 0.21034801, 0.872519)
+
+[node name="NpcWaypointEntity5" parent="." unique_id=1647625312 instance=ExtResource("3_tnc23")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.1333337, 0.21034801, -2.770249)
+
+[node name="NpcWaypointEntity6" parent="." unique_id=229862597 instance=ExtResource("3_tnc23")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.881372, 0.21034801, -1.0885253)
+
+[node name="NpcWaypointEntity7" parent="." unique_id=1666871729 instance=ExtResource("3_tnc23")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.04564, 0.21034801, -6.240063)
+
+[node name="NpcWaypointEntity8" parent="." unique_id=694105527 instance=ExtResource("3_tnc23")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2716427, 0.21034896, -8.8588085)
+
+[node name="NpcWaypointEntity9" parent="." unique_id=1204962801 instance=ExtResource("3_tnc23")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.502844, 0.21034896, 3.3178797)
+
+[node name="NpcWaypointEntity10" parent="." unique_id=146144476 instance=ExtResource("3_tnc23")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0694113, 0.21034896, 5.8702145)
+
+[node name="NpcWaypointEntity11" parent="." unique_id=1012999266 instance=ExtResource("3_tnc23")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3578081, 0.21034896, 1.2574859)
 
 [node name="NpcWaypointEntity2" parent="." unique_id=1384438745 instance=ExtResource("3_tnc23")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.811728, 0.21034801, 0.872519)

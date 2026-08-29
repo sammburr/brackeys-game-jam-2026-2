@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://brq6fgna4f522"]
+
+[ext_resource type="Script" uid="uid://l3vpdryr5uba" path="res://scripts/managers/dialogue_manager/DialogueUI.cs" id="1_sh47r"]
+[ext_resource type="FontFile" uid="uid://bb45fastcyr" path="res://assets/fonts/DotGothic16-Regular.ttf" id="2_d3qot"]
+[ext_resource type="PackedScene" uid="uid://caqxewqypplq2" path="res://scenes/dialogue/dialogue_button.tscn" id="3_hskrx"]
+
+[node name="DialogueUI" type="Control" unique_id=795072493 node_paths=PackedStringArray("_mainLabel", "_promptContainer", "_actionButton", "MainUI")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = -1.0
+offset_right = 1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sh47r")
+_mainLabel = NodePath("Control/Title")
+_promptContainer = NodePath("Control/prompts")
+_actionButton = NodePath("Control/ActionButton")
+_dialogueButtonTemplate = ExtResource("3_hskrx")
+MainUI = NodePath("Control")
+_mainTextPrefix = "[font_size=40]"
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1319535072]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 848.0
+offset_bottom = 352.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.10980392)
+
+[node name="Control" type="Control" parent="." unique_id=1983865694]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="RichTextLabel" parent="Control" unique_id=1724194512]
+layout_mode = 1
+offset_left = 28.0
+offset_right = 1568.0
+offset_bottom = 118.0
+theme_override_fonts/normal_font = ExtResource("2_d3qot")
+bbcode_enabled = true
+text = "[font_size=40]Main textMain textMain textMain textMain textMain textMain textMain text"
+fit_content = true
+autowrap_mode = 2
+
+[node name="prompts" type="VBoxContainer" parent="Control" unique_id=1491160840]
+layout_mode = 1
+offset_top = 193.0
+offset_right = 400.0
+offset_bottom = 384.0
+
+[node name="Button" parent="Control/prompts" unique_id=1003281591 instance=ExtResource("3_hskrx")]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="ActionButton" type="Button" parent="Control" unique_id=1833716957]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 731.0
+offset_right = 328.0
+offset_bottom = 792.0
+theme_override_colors/font_color = Color(0.5382346, 0.65609205, 0.77778673, 1)
+theme_override_fonts/font = ExtResource("2_d3qot")
+theme_override_font_sizes/font_size = 36
+text = "woo action button"

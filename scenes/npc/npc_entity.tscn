@@ -2,14 +2,17 @@
 
 [ext_resource type="PackedScene" uid="uid://bwi2f6ilawalp" path="res://scenes/npc/skeleton.tscn" id="1_53423"]
 [ext_resource type="Script" uid="uid://b3jq78h586wge" path="res://scripts/npc/NpcEntity.cs" id="1_lwxlj"]
+[ext_resource type="FontFile" uid="uid://bb45fastcyr" path="res://assets/fonts/DotGothic16-Regular.ttf" id="3_8jvqd"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_omjkn"]
+radius = 0.3413086
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_7wxnq"]
 radius = 3.1811523
 
-[node name="NpcEntity" type="CharacterBody3D" unique_id=464620379 node_paths=PackedStringArray("NavAgent3D", "PlayerInteractArea", "NpcAnimator")]
+[node name="NpcEntity" type="CharacterBody3D" unique_id=464620379 node_paths=PackedStringArray("_interactBillBoard", "NavAgent3D", "PlayerInteractArea", "NpcAnimator")]
 script = ExtResource("1_lwxlj")
+_interactBillBoard = NodePath("Interact Billboard")
 NavAgent3D = NodePath("NavigationAgent3D")
 MoveSpeed = 1.0
 PlayerInteractArea = NodePath("PlayerInteractArea")
@@ -30,3 +33,11 @@ shape = SubResource("CapsuleShape3D_omjkn")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerInteractArea" unique_id=1771032708]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CylinderShape3D_7wxnq")
+
+[node name="Interact Billboard" type="Label3D" parent="." unique_id=618526045]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4118438, 0)
+billboard = 1
+text = "E to Talk
+"
+font = ExtResource("3_8jvqd")
+font_size = 64

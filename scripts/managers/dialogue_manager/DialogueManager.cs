@@ -70,8 +70,8 @@ public partial class DialogueManager : Node{
         DialogueActive = data[id];
     }
 
+    // called when player interacts with NPC
     public void StartDialogue(int id){
-        GD.Print($"aa {id}");
         if (!Speaking) {
             SceneManager.TryInstanciateScene("dialogue-ui", out DialogueUI);
             _inputContext = new DialogueInputContext();

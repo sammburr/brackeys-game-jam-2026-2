@@ -31,7 +31,6 @@ public partial class NPCManager : Node3D{
 			}
 
 			if (closestNPC != null) {
-				GD.Print(closestNPC.ID);
 				DialogueManager.Instance.StartDialogue(closestNPC.ID);
 			}
 		}

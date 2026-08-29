@@ -3,18 +3,27 @@ using System;
 
 public partial class DialogueUI : Control{
 
-	[Export] public Label _mainLabel;
+	[Export] private RichTextLabel _mainLabel;
 
-	[Export] public Control _promptContainer;
-	[Export] public Button _actionButton;
+	[Export] private Control _promptContainer;
+	[Export] private Button _actionButton;
 
-	[Export] public Control MainUI;
+	[Export] private PackedScene _dialogueButtonTemplate;
+
+	[Export] private Control MainUI;
+
+	[Export] private string _mainTextPrefix;
 	
-	
+	[Export] private float _scrollSpeed = 60f; // scroll speed
+
+	private Tween _textTween;
+	private bool _isScrolling;
+
 	public override void _Ready(){
 		_actionButton.ButtonUp += ActionButtonPressed;
 		DialogueManager.Instance.DialogueStarted += SetActiveDialogue;
 
+		_mainLabel.VisibleRatio = 1f;
 		MainUI.Visible = false; // do last lol
 	}
 
@@ -25,7 +34,7 @@ public partial class DialogueUI : Control{
 
 	
 	private void LoadDialogueData(NPCDialogue d){
-		_mainLabel.Text = d.InitialMessage;
+		SetMainText(_mainTextPrefix + d.InitialMessage);
 
 		foreach (Node child in _promptContainer.GetChildren())
 			child.QueueFree();
@@ -34,15 +43,15 @@ public partial class DialogueUI : Control{
 			
 		
 		foreach (var option in options) {
-			var button = new Button();
+			var button = (Button) _dialogueButtonTemplate.Instantiate();
 			button.Text = option.ChoiceText;
 			_promptContainer.AddChild(button);
-			button.ButtonUp += () => SelectedPrompt(option);
+			button.ButtonUp += () => PromptSelected(option);
 		}
 	}
 
-	private void SelectedPrompt(DialogueOption option){
-		_mainLabel.Text = option.ResponseText;
+	private void PromptSelected(DialogueOption option){
+		SetMainText(_mainTextPrefix + option.ResponseText);
 		_promptContainer.Visible = false;
 		DialogueManager.Instance.InPrompt = true;
 		DialogueManager.Instance.CurrentDialogue = option;
@@ -51,10 +60,30 @@ public partial class DialogueUI : Control{
 		_actionButton.Text = "Continue";
 	}
 
+	private void SetMainText(string t){
+		_mainLabel.Text = t;
+		_mainLabel.VisibleRatio = 0f;
+
+		_textTween?.Kill();
+		_isScrolling = true;
+
+		float duration = t.Length / _scrollSpeed;
+		_textTween = CreateTween();
+		_textTween.TweenProperty(_mainLabel, "visible_ratio", 1f, duration);
+		_textTween.Finished += () => _isScrolling = false;
+	}
+	
 	private void ActionButtonPressed(){
+		if (_isScrolling){
+			_textTween?.Kill();
+			_mainLabel.VisibleRatio = 1f;
+			_isScrolling = false;
+			return;
+		}
+		
 		if (DialogueManager.Instance.InPrompt) {
 			if (DialogueManager.Instance.CurrentDialogue.NextDialogue != null) {
-				SelectedPrompt(DialogueManager.Instance.CurrentDialogue.NextDialogue);
+				PromptSelected(DialogueManager.Instance.CurrentDialogue.NextDialogue);
 			}
 			else {
 				ResetUIToPrompts();
@@ -74,7 +103,6 @@ public partial class DialogueUI : Control{
 	}
 
 	public void SetActiveDialogue(int id){
-		GD.Print("aa");
 		DialogueManager.Instance.SetActiveDialogue(id);
 		LoadDialogueData(DialogueManager.Instance.data[id]);
 		MainUI.Visible = true;

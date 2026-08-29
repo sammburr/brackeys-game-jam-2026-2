@@ -111,7 +111,7 @@ public partial class NpcController : Node3D
 
     private void PlayDefaultAnimation()
     {
-        _animationPlayer.Play(_defaultAnimation, -1, _playbackSpeed);
+        _animationPlayer?.Play(_defaultAnimation, -1, _playbackSpeed);
     }
 
     private void UpdateMeshVisibility()
